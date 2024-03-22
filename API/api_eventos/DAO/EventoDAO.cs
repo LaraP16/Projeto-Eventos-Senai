@@ -123,12 +123,76 @@ namespace api.DAO
 
         public void UpdateEvento(int id, Evento evento)
         {
-            // Implementação da atualização do evento
+            //UPDATE `bd_eventos_senailp`.`evento` SET `total_ingresso` = '500' WHERE (`idevento` = '3');
+
+            string query = "UPDATE evento SET " +
+                            "descricao = @descricao, " +
+                            "total_ingresso = @total_ingresso, " +
+                            "data_evento = @data_evento " +
+                            "WHERE idevento=@idevento";
+
+            try
+            {
+                 _connection.Open();
+                using (var command = new MySqlCommand(query, _connection))
+                {
+
+                     command.Parameters.AddWithValue("@idevento", id);
+                     command.Parameters.AddWithValue("@descricao", evento.Descricao);
+                     command.Parameters.AddWithValue("@total_ingresso", evento.TotalIngresso);
+                     command.Parameters.AddWithValue("@data_evento", evento.DataEvento);
+
+                     command.ExecuteNonQuery();
+                }
+            }
+
+             catch(MySqlException ex)
+            {   
+                Console.WriteLine($"Erro do Banco: + {ex.Message}");
+            }
+
+        catch(Exception ex)
+            { 
+                Console.WriteLine($"Erro Desconhecido: + {ex.Message}");
+            }
+
+        finally
+            {   
+                _connection.Close();
+            }
         }
 
         public void DeleteEvento(int id)
         {
-            // Implementação da exclusão do evento
+             string query = " DELETE FROM evento WHERE idevento=@idevento";
+
+            try
+            {
+                  _connection.Open();
+                using (var command = new MySqlCommand(query, _connection))
+              
+                {
+                    command.Parameters.AddWithValue("@idevento", id);
+                    command.ExecuteNonQuery();
+                }
+                
+            }
+
+            
+             catch(MySqlException ex)
+            {   
+                Console.WriteLine($"Erro do Banco: + {ex.Message}");
+            }
+
+        catch(Exception ex)
+            { 
+                Console.WriteLine($"Erro Desconhecido: + {ex.Message}");
+            }
+
+        finally
+            {   
+                _connection.Close();
+            }
         }
     }
 }
