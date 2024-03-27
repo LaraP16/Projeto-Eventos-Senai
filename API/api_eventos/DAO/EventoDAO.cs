@@ -33,7 +33,10 @@ namespace api.DAO
                         evento.Descricao = reader.GetString("descricao");
                         evento.TotalIngresso = reader.GetDecimal("total_ingresso");
                         evento.DataEvento = reader.GetDateTime("data_evento");
-
+                        evento.ImagemUrl = reader.GetString("imagem_url");
+                        evento.Local = reader.GetString("local");
+                        evento.Ativo = reader.GetInt16("ativo");
+                    
                         eventos.Add(evento);
                     }
                 }
@@ -72,6 +75,9 @@ namespace api.DAO
                         evento.Descricao = reader.GetString("descricao");
                         evento.TotalIngresso = reader.GetDecimal("total_ingresso");
                         evento.DataEvento = reader.GetDateTime("data_evento");
+                        evento.ImagemUrl = reader.GetString("imagem_url");
+                        evento.Local = reader.GetString("local");
+                        evento.Ativo = reader.GetInt16("ativo");
                     }
                 }
             }
@@ -93,7 +99,7 @@ namespace api.DAO
 
         public void CreateEvento(Evento evento)
         {
-            string query = "INSERT INTO evento (descricao, total_ingresso, data_evento) VALUES (@Descricao, @TotalIngresso, @DataEvento)";
+            string query = "INSERT INTO evento (descricao, total_ingresso, data_evento) VALUES (@Descricao, @TotalIngresso, @DataEvento, @Local, @Ativo)";
 
             try
             {
@@ -103,6 +109,9 @@ namespace api.DAO
                     command.Parameters.AddWithValue("@Descricao", evento.Descricao);
                     command.Parameters.AddWithValue("@TotalIngresso", evento.TotalIngresso);
                     command.Parameters.AddWithValue("@DataEvento", evento.DataEvento);
+                    command.Parameters.AddWithValue("@ImagemUrl", evento.ImagemUrl);
+                    command.Parameters.AddWithValue("@Local", evento.Local);
+                    command.Parameters.AddWithValue("@Ativo", evento.Ativo);
 
                     command.ExecuteNonQuery();
                 }
@@ -128,7 +137,10 @@ namespace api.DAO
             string query = "UPDATE evento SET " +
                             "descricao = @descricao, " +
                             "total_ingresso = @total_ingresso, " +
-                            "data_evento = @data_evento " +
+                            "data_evento = @data_evento, " +
+                            $"imagem_url=@imagem_url," +
+                            "local = @local, " +
+                            "ativo = @ativo, " + 
                             "WHERE idevento=@idevento";
 
             try
@@ -141,6 +153,9 @@ namespace api.DAO
                      command.Parameters.AddWithValue("@descricao", evento.Descricao);
                      command.Parameters.AddWithValue("@total_ingresso", evento.TotalIngresso);
                      command.Parameters.AddWithValue("@data_evento", evento.DataEvento);
+                     command.Parameters.AddWithValue("@ImagemUrl", evento.ImagemUrl);
+                     command.Parameters.AddWithValue("@Local", evento.Local);
+                     command.Parameters.AddWithValue("@Ativo", evento.Ativo);
 
                      command.ExecuteNonQuery();
                 }

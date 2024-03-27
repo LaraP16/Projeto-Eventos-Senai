@@ -21,6 +21,15 @@ namespace api.Models
         [Column("data_evento")]
         public DateTime DataEvento { get; set; }
 
-        // Propriedades e navegações adicionais conforme necessário
+        [Column("imagem_url")]
+        public string ImagemUrl { get; set; }
+
+         [Column("local")]
+        public string Local { get; set; }
+
+        [Column("ativo")]
+        public int Ativo { get; set; }
+
+      
     }
 }
