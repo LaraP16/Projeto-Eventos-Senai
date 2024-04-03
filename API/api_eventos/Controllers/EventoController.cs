@@ -8,11 +8,11 @@ namespace api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EventosController : ControllerBase
+    public class EventoController : ControllerBase
     {
         private EventoDao _eventoDao;
 
-        public EventosController()
+        public EventoController()
         {
             _eventoDao = new EventoDao();
         }
