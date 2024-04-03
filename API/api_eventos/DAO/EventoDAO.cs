@@ -99,7 +99,7 @@ namespace api.DAO
 
         public void CreateEvento(Evento evento)
         {
-            string query = "INSERT INTO evento (descricao, total_ingresso, data_evento) VALUES (@Descricao, @TotalIngresso, @DataEvento, @Local, @Ativo)";
+            string query = "INSERT INTO evento (descricao, total_ingresso, data_evento, imagem_url, local, ativo) VALUES (@Descricao, @TotalIngresso, @DataEvento, @ImagemUrl, @Local, @Ativo)";
 
             try
             {
@@ -138,9 +138,9 @@ namespace api.DAO
                             "descricao = @descricao, " +
                             "total_ingresso = @total_ingresso, " +
                             "data_evento = @data_evento, " +
-                            $"imagem_url=@imagem_url," +
+                            "imagem_url=@imagem_url, " +
                             "local = @local, " +
-                            "ativo = @ativo, " + 
+                            "ativo = @ativo " + 
                             "WHERE idevento=@idevento";
 
             try
@@ -153,9 +153,9 @@ namespace api.DAO
                      command.Parameters.AddWithValue("@descricao", evento.Descricao);
                      command.Parameters.AddWithValue("@total_ingresso", evento.TotalIngresso);
                      command.Parameters.AddWithValue("@data_evento", evento.DataEvento);
-                     command.Parameters.AddWithValue("@ImagemUrl", evento.ImagemUrl);
-                     command.Parameters.AddWithValue("@Local", evento.Local);
-                     command.Parameters.AddWithValue("@Ativo", evento.Ativo);
+                     command.Parameters.AddWithValue("@imagem_url", evento.ImagemUrl);
+                     command.Parameters.AddWithValue("@local", evento.Local);
+                     command.Parameters.AddWithValue("@ativo", evento.Ativo);
 
                      command.ExecuteNonQuery();
                 }
@@ -209,5 +209,6 @@ namespace api.DAO
                 _connection.Close();
             }
         }
+    
     }
 }
