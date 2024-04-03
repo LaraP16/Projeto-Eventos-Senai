@@ -59,26 +59,24 @@ namespace api.DAO
 
         public Evento GetById(int id)
         {
-            Evento evento = null;
+            Evento evento = new Evento();
             string query = $"SELECT * FROM evento WHERE idevento = {id};";
 
             try
             {
                 _connection.Open();
                 MySqlCommand command = new MySqlCommand(query, _connection);
-                using (MySqlDataReader reader = command.ExecuteReader())
+                using MySqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
                 {
-                    if (reader.Read())
-                    {
-                        evento = new Evento();
-                        evento.IdEvento = reader.GetInt32("idevento");
-                        evento.Descricao = reader.GetString("descricao");
-                        evento.TotalIngresso = reader.GetDecimal("total_ingresso");
-                        evento.DataEvento = reader.GetDateTime("data_evento");
-                        evento.ImagemUrl = reader.GetString("imagem_url");
-                        evento.Local = reader.GetString("local");
-                        evento.Ativo = reader.GetInt16("ativo");
-                    }
+
+                    evento.IdEvento = reader.GetInt32("idevento");
+                    evento.Descricao = reader.GetString("descricao");
+                    evento.TotalIngresso = reader.GetDecimal("total_ingresso");
+                    evento.DataEvento = reader.GetDateTime("data_evento");
+                    evento.ImagemUrl = reader.GetString("imagem_url");
+                    evento.Local = reader.GetString("local");
+                    evento.Ativo = reader.GetInt16("ativo");
                 }
             }
             catch (MySqlException ex)
@@ -104,17 +102,15 @@ namespace api.DAO
             try
             {
                 _connection.Open();
-                using (var command = new MySqlCommand(query, _connection))
-                {
-                    command.Parameters.AddWithValue("@Descricao", evento.Descricao);
-                    command.Parameters.AddWithValue("@TotalIngresso", evento.TotalIngresso);
-                    command.Parameters.AddWithValue("@DataEvento", evento.DataEvento);
-                    command.Parameters.AddWithValue("@ImagemUrl", evento.ImagemUrl);
-                    command.Parameters.AddWithValue("@Local", evento.Local);
-                    command.Parameters.AddWithValue("@Ativo", evento.Ativo);
+                using var command = new MySqlCommand(query, _connection);
+                command.Parameters.AddWithValue("@Descricao", evento.Descricao);
+                command.Parameters.AddWithValue("@TotalIngresso", evento.TotalIngresso);
+                command.Parameters.AddWithValue("@DataEvento", evento.DataEvento);
+                command.Parameters.AddWithValue("@ImagemUrl", evento.ImagemUrl);
+                command.Parameters.AddWithValue("@Local", evento.Local);
+                command.Parameters.AddWithValue("@Ativo", evento.Ativo);
 
-                    command.ExecuteNonQuery();
-                }
+                command.ExecuteNonQuery();
             }
             catch (MySqlException ex)
             {
@@ -146,19 +142,17 @@ namespace api.DAO
             try
             {
                  _connection.Open();
-                using (var command = new MySqlCommand(query, _connection))
-                {
+                using var command = new MySqlCommand(query, _connection);
 
-                     command.Parameters.AddWithValue("@idevento", id);
-                     command.Parameters.AddWithValue("@descricao", evento.Descricao);
-                     command.Parameters.AddWithValue("@total_ingresso", evento.TotalIngresso);
-                     command.Parameters.AddWithValue("@data_evento", evento.DataEvento);
-                     command.Parameters.AddWithValue("@imagem_url", evento.ImagemUrl);
-                     command.Parameters.AddWithValue("@local", evento.Local);
-                     command.Parameters.AddWithValue("@ativo", evento.Ativo);
+                command.Parameters.AddWithValue("@idevento", id);
+                command.Parameters.AddWithValue("@descricao", evento.Descricao);
+                command.Parameters.AddWithValue("@total_ingresso", evento.TotalIngresso);
+                command.Parameters.AddWithValue("@data_evento", evento.DataEvento);
+                command.Parameters.AddWithValue("@imagem_url", evento.ImagemUrl);
+                command.Parameters.AddWithValue("@local", evento.Local);
+                command.Parameters.AddWithValue("@ativo", evento.Ativo);
 
-                     command.ExecuteNonQuery();
-                }
+                command.ExecuteNonQuery();
             }
 
              catch(MySqlException ex)
@@ -184,13 +178,10 @@ namespace api.DAO
             try
             {
                   _connection.Open();
-                using (var command = new MySqlCommand(query, _connection))
-              
-                {
-                    command.Parameters.AddWithValue("@idevento", id);
-                    command.ExecuteNonQuery();
-                }
-                
+                using var command = new MySqlCommand(query, _connection);
+                command.Parameters.AddWithValue("@idevento", id);
+                command.ExecuteNonQuery();
+
             }
 
             
