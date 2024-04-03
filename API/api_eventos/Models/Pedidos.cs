@@ -27,7 +27,7 @@ namespace api_eventos.Models
         public string? FormaPagamento { get; set; }
 
          [Column("status")]
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         [Column("validacao_idusuario")]
         public  int? ValidacaoIdUsuario { get; set;}

@@ -13,7 +13,7 @@ namespace api.Models
         public int IdEvento { get; set; }
 
         [Column("descricao")]
-        public string Descricao { get; set; }
+        public string? Descricao { get; set; }
 
         [Column("total_ingresso")]
         public decimal TotalIngresso { get; set; }
@@ -22,10 +22,10 @@ namespace api.Models
         public DateTime DataEvento { get; set; }
 
         [Column("imagem_url")]
-        public string ImagemUrl { get; set; }
+        public string? ImagemUrl { get; set; }
 
          [Column("local")]
-        public string Local { get; set; }
+        public string? Local { get; set; }
 
         [Column("ativo")]
         public int Ativo { get; set; }

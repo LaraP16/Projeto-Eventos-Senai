@@ -12,7 +12,7 @@ namespace api_eventos.Models
         public int idlote { get; set; }
 
         [Column("descricao")]
-        public string Descricao { get; set; }
+        public string? Descricao { get; set; }
 
          [Column("valor_unitario")]
         public double? ValorUnitario { get; set; }
