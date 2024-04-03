@@ -28,7 +28,7 @@ namespace api_eventos.Models
         public string? Perfil { get; set;}
 
         [Column("ativo")]
-        public string? Ativo { get; set;}
+        public int Ativo { get; set;}
 
 
     }

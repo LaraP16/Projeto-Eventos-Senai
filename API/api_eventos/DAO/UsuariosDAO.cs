@@ -37,7 +37,7 @@ namespace api_eventos.DAO
                         usuario.Senha = reader.GetString("senha");
                         usuario.Telefone = reader.GetString("telefone");
                         usuario.Perfil = reader.GetString("perfil");
-                        usuario.Ativo = reader.GetString("ativo");
+                        usuario.Ativo = reader.GetInt32("ativo");
                         usuarios.Add(usuario);
                     }
                 }
@@ -78,7 +78,7 @@ namespace api_eventos.DAO
                         usuario.Senha = reader.GetString("senha");
                         usuario.Telefone = reader.GetString("telefone");
                         usuario.Perfil = reader.GetString("perfil");
-                        usuario.Ativo = reader.GetString("ativo");
+                        usuario.Ativo = reader.GetInt32("ativo");
                     }
                 }  
             }
