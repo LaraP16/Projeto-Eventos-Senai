@@ -8,11 +8,11 @@ using MySql.Data.MySqlClient;
 
 namespace api_eventos.DAO
 {
-    public class UsuariosDAO
+    public class EventosUsuariosDAO
     {
         private MySqlConnection _connection;
 
-        public UsuariosDAO()
+        public EventosUsuariosDAO()
         {
             _connection = MySqlConnectionFactory.GetConnection();
         }
