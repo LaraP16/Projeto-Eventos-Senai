@@ -12,27 +12,27 @@ namespace api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EventosController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
         
-        private EventosUsuariosDAO _eventosusuariosDAO;
+        private UsuariosDAO _usuariosDAO;
 
-        public EventosController()
+        public UsuarioController()
         {
-            _eventosusuariosDAO = new EventosUsuariosDAO();
+            _usuariosDAO = new UsuariosDAO();
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var usuario = _eventosusuariosDAO.GetAll();
+            var usuario = _usuariosDAO.GetAll();
             return Ok(usuario);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetId(int id)
         {
-            var usuario = _eventosusuariosDAO.GetId(id);
+            var usuario = _usuariosDAO.GetId(id);
             if(usuario == null)
             {
                 return NotFound();
@@ -44,29 +44,29 @@ namespace api.Controllers
         
         public IActionResult CriarUsuario(Usuario usuario)
         {
-            _eventosusuariosDAO.CriarUsuario(usuario);
+            _usuariosDAO.CriarUsuario(usuario);
             return Ok();
         }
 
         [HttpPut("{id}")]
         public IActionResult AtualizarUsuario(int id, Usuario usuario)
         {
-            if(_eventosusuariosDAO.GetId(id) == null)
+            if(_usuariosDAO.GetId(id) == null)
             {
                 return NotFound();
             }
-            _eventosusuariosDAO.AtualizarUsuario(id, usuario);
+            _usuariosDAO.AtualizarUsuario(id, usuario);
             return Ok();
         }
 
         [HttpDelete]
         public IActionResult DeletarUsuario(int id)
         {
-            if (_eventosusuariosDAO.GetId(id) == null)
+            if (_usuariosDAO.GetId(id) == null)
             {
                 return NotFound();
             }
-            _eventosusuariosDAO.DeletarUsuario(id);
+            _usuariosDAO.DeletarUsuario(id);
             return Ok();
         }
     }

@@ -1,2 +1,3 @@
 API/api_eventos/bin/*
 API/api_eventos/obj/*
+API/api_eventos/Repository/MySqlConnectionFactory.cs
