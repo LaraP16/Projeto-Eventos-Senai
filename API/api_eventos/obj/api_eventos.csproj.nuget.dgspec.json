@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projetosC\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj": {}
+    "C:\\projetos\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj": {}
   },
   "projects": {
-    "C:\\projetosC\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj": {
+    "C:\\projetos\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projetosC\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj",
+        "projectUniqueName": "C:\\projetos\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj",
         "projectName": "api_eventos",
-        "projectPath": "C:\\projetosC\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj",
-        "packagesPath": "C:\\Users\\Letícia.Moreira\\.nuget\\packages\\",
-        "outputPath": "C:\\projetosC\\Projeto-Eventos-Senai\\API\\api_eventos\\obj\\",
+        "projectPath": "C:\\projetos\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj",
+        "packagesPath": "C:\\Users\\Lara.Puga\\.nuget\\packages\\",
+        "outputPath": "C:\\projetos\\Projeto-Eventos-Senai\\API\\api_eventos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Letícia.Moreira\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Lara.Puga\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
