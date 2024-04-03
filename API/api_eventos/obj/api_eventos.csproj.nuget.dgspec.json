@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Projetos\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj",
         "projectName": "api_eventos",
         "projectPath": "C:\\Projetos\\Projeto-Eventos-Senai\\API\\api_eventos\\api_eventos.csproj",
-        "packagesPath": "C:\\Users\\Miguel Souza\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Nayara.Paulino\\.nuget\\packages\\",
         "outputPath": "C:\\Projetos\\Projeto-Eventos-Senai\\API\\api_eventos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Miguel Souza\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Nayara.Paulino\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
