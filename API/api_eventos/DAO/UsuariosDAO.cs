@@ -37,7 +37,7 @@ namespace api_eventos.DAO
                         usuario.Senha = reader.GetString("senha");
                         usuario.Telefone = reader.GetString("telefone");
                         usuario.Perfil = reader.GetString("perfil");
-                        usuario.Status = reader.GetString("status");
+                        usuario.Ativo = reader.GetString("ativo");
                         usuarios.Add(usuario);
                     }
                 }
@@ -78,7 +78,7 @@ namespace api_eventos.DAO
                         usuario.Senha = reader.GetString("senha");
                         usuario.Telefone = reader.GetString("telefone");
                         usuario.Perfil = reader.GetString("perfil");
-                        usuario.Status = reader.GetString("status");
+                        usuario.Ativo = reader.GetString("ativo");
                     }
                 }  
             }
@@ -98,7 +98,7 @@ namespace api_eventos.DAO
         }
         public void CriarUsuario(Usuario usuario)
         {
-            string query = "INSERT INTO usuario (nome_completo, email, senha, telefone, perfil, status) VALUES (@NomeCompleto, @Email, @Senha, @Telefone, @Perfil, @Status)";
+            string query = "INSERT INTO usuario (nome_completo, email, senha, telefone, perfil, ativo) VALUES (@NomeCompleto, @Email, @Senha, @Telefone, @Perfil, @Ativo)";
 
         try
         {
@@ -110,7 +110,7 @@ namespace api_eventos.DAO
                 command.Parameters.AddWithValue("@Senha", usuario.Senha);
                 command.Parameters.AddWithValue("@Telefone", usuario.Telefone);
                 command.Parameters.AddWithValue("@Perfil", usuario.Perfil);
-                command.Parameters.AddWithValue("@Status", usuario.Status);
+                command.Parameters.AddWithValue("@Ativo", usuario.Ativo);
                 command.ExecuteNonQuery();
             }
         }
@@ -136,7 +136,7 @@ namespace api_eventos.DAO
                            "senha=@Senha, " +
                            "telefone=@Telefone, " +
                            "perfil=@Perfil, " + 
-                           "status=@Status " + 
+                           "ativo=@Ativo " + 
                            "WHERE idusuario=@IdUsuario";
 
             try
@@ -150,7 +150,7 @@ namespace api_eventos.DAO
                     command.Parameters.AddWithValue("@Senha", usuario.Senha);
                     command.Parameters.AddWithValue("@Telefone", usuario.Telefone);
                     command.Parameters.AddWithValue("@Perfil", usuario.Perfil);
-                    command.Parameters.AddWithValue("@Status", usuario.Status);
+                    command.Parameters.AddWithValue("@Ativo", usuario.Ativo);
                     command.ExecuteNonQuery();
                 }
             }
