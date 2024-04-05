@@ -130,8 +130,8 @@ namespace api_eventos.DAO
         
         public void AtualizarUsuario(int id, Usuario usuario)
         {
-            string query = "UPDATE usuario SET" +
-                           "nomecompleto=@NomeCompleto, " +
+            string query = "UPDATE usuario SET " +
+                           "nome_completo=@NomeCompleto, " +
                            "email=@Email, " +
                            "senha=@Senha, " +
                            "telefone=@Telefone, " +

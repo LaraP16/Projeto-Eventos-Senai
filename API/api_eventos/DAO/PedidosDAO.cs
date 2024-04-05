@@ -132,7 +132,7 @@ namespace api.DAO
 
         public void AtualizarPedidos(int id, Pedidos pedido)
         {
-            string query = "UPDATE pedido SET data = @Data, total = @Total, quantidade = @Quantidade, forma_pagamento = @FormaPagamento, status = @Status, validacao = @Validacao WHERE id_pedidos = @Id , usuario_idusuario = @UsuarioId,";
+            string query = "UPDATE pedido SET data = @Data, total = @Total, quantidade = @Quantidade, forma_pagamento = @FormaPagamento, status = @Status, validacao_id_usuario = @Validacao, usuario_idusuario = @UsuarioId WHERE idpedido = @Id";
             
             try
             {

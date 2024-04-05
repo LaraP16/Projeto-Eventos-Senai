@@ -77,7 +77,7 @@ namespace api_eventos.DAO
                     ingresso.CodigoQr = reader.GetString("codigo_qr");
                     ingresso.Valor = reader.GetDouble("valor");
                     ingresso.Status = reader.GetString("status");
-                    ingresso.Tipo = reader.GetString("tipor");
+                    ingresso.Tipo = reader.GetString("tipo");
                     ingresso.DataUtilizacao = reader.GetDateTime("data_utilizacao");
                     ingresso.IdPedido = reader.GetInt32("pedido_idpedido");
                     ingresso.IdUsuario = reader.GetInt32("pedido_usuario_idusuario");
@@ -140,7 +140,7 @@ namespace api_eventos.DAO
 
         public void UpDateIngresso(int id, Ingresso ingresso)
         {
-            var query = "UPDATE Ingressos SET codigo_qr = @codigo_qr, valor = @valor, status = @status, tipo = @tipo, data_utilizacao = @data_utilizacao, pedido_idpedido = @pedido_idpedido, lote_idlote = @lote_idlote, evento_idevento = @evento_idevento  WHERE idingresso = @idingresso";
+            var query = "UPDATE ingresso SET codigo_qr = @codigo_qr, valor = @valor, status = @status, tipo = @tipo, data_utilizacao = @data_utilizacao, pedido_idpedido = @pedido_idpedido, lote_idlote = @lote_idlote, evento_idevento = @evento_idevento  WHERE idingresso = @idingresso";
 
             try
             {

@@ -28,9 +28,14 @@ namespace api_eventos.Controllers
 
         [HttpGet("{id}")]
         public IActionResult GetId(int id)
-        {
-            
-            return Ok();
+        { var pedido = _PedidosDAO.GetId(id);
+ 
+            if (pedido == null)
+            {
+                return NotFound();
+            }
+ 
+            return Ok(pedido);
         }
 
         [HttpPost]
