@@ -13,7 +13,7 @@ namespace api_eventos.Models
         public int IdUsuario { get; set; }
 
         [Column("nome_completo")]
-        public string ?NomeCompleto { get; set;}
+        public string? NomeCompleto { get; set;}
 
         [Column("email")]
         public string? Email { get; set; }
