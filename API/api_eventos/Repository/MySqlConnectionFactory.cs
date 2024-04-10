@@ -10,7 +10,7 @@ namespace api_eventos.Repository
     {
          public static MySqlConnection GetConnection()
         {
-            string connectionString = "Server=localhost;Database=bd_eventos_senailp;Uid=root;Pwd=senai2024;";
+            string connectionString = "Server=localhost;Database=bd_eventos_senailp;Uid=root;Pwd=Lara@1603;";
             MySqlConnection connection = new MySqlConnection(connectionString);
             return connection;
         }
