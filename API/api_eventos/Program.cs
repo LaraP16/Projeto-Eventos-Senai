@@ -9,6 +9,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IngressoDAO>();
 
+builder.Services.AddCors(option => {
+    option.AddDefaultPolicy(policy => {
+        policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
  
 // Configure the HTTP request pipeline.

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using api_eventos.DAO;
 using api_eventos.Models;
 using ZstdSharp.Unsafe;
+using System.Xml.Serialization;
 
 namespace api.Controllers
 {
@@ -14,7 +15,7 @@ namespace api.Controllers
     [Route("api/[controller]")]
     public class UsuarioController : ControllerBase
     {
-        
+
         private UsuariosDAO _usuariosDAO;
 
         public UsuarioController()
@@ -33,15 +34,37 @@ namespace api.Controllers
         public IActionResult GetId(int id)
         {
             var usuario = _usuariosDAO.GetId(id);
-            if(usuario == null)
+            if (usuario == null)
             {
                 return NotFound();
             }
             return Ok(usuario);
         }
 
+
+        [HttpPost("login")]
+        public IActionResult GetLoginAsync([FromBody] UsuarioCredenciais credentials)
+        {
+            var usuario = _usuariosDAO.Getemail(credentials.email);
+
+            if (usuario == null)
+            {
+                return Unauthorized("E-mail não existe");
+            }
+            else if (usuario.Senha != credentials.senha)
+            {
+                return Unauthorized("Senha incorreta");
+            }
+            else
+            {
+                return Ok(usuario);
+            }
+        }
+
+
+
         [HttpPost]
-        
+
         public IActionResult CriarUsuario(Usuario usuario)
         {
             _usuariosDAO.CriarUsuario(usuario);
@@ -51,7 +74,7 @@ namespace api.Controllers
         [HttpPut("{id}")]
         public IActionResult AtualizarUsuario(int id, Usuario usuario)
         {
-            if(_usuariosDAO.GetId(id) == null)
+            if (_usuariosDAO.GetId(id) == null)
             {
                 return NotFound();
             }

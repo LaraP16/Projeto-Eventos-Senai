@@ -96,6 +96,138 @@ namespace api_eventos.DAO
             }
             return usuario;
         }
+
+
+        public Usuario Getemail(string email)
+        {
+            Usuario usuario = new Usuario();
+            string query = $"SELECT * FROM usuario WHERE email = '{email}'";
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = new MySqlCommand(query, _connection);
+                using(MySqlDataReader reader = command.ExecuteReader())
+                {
+
+                    if(reader.Read())
+                    {
+                        usuario.IdUsuario = reader.GetInt32("idusuario");
+                        usuario.NomeCompleto = reader.GetString("nome_completo");
+                        usuario.Email = reader.GetString("email");
+                        usuario.Senha = reader.GetString("senha");
+                        usuario.Telefone = reader.GetString("telefone");
+                        usuario.Perfil = reader.GetString("perfil");
+                        usuario.Ativo = reader.GetInt32("ativo");
+                    }
+                }  
+            }
+            catch(MySqlException ex)
+            {
+                Console.WriteLine($"Erro no banco: {ex.Message}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Erro desconhecido: {ex.Message}");
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return usuario;
+        }
+
+
+
+
+        public Usuario Gettel(int telefone)
+        {
+            Usuario usuario = new Usuario();
+            string query = $"SELECT * FROM usuario WHERE telefone = {telefone}";
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = new MySqlCommand(query, _connection);
+                using(MySqlDataReader reader = command.ExecuteReader())
+                {
+
+                    if(reader.Read())
+                    {
+                        usuario.IdUsuario = reader.GetInt32("idusuario");
+                        usuario.NomeCompleto = reader.GetString("nome_completo");
+                        usuario.Email = reader.GetString("email");
+                        usuario.Senha = reader.GetString("senha");
+                        usuario.Telefone = reader.GetString("telefone");
+                        usuario.Perfil = reader.GetString("perfil");
+                        usuario.Ativo = reader.GetInt32("ativo");
+                    }
+                }  
+            }
+            catch(MySqlException ex)
+            {
+                Console.WriteLine($"Erro no banco: {ex.Message}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Erro desconhecido: {ex.Message}");
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return usuario;
+        }
+
+     public Usuario Getperfil(string perfil)
+        {
+            Usuario usuario = new Usuario();
+            string query = $"SELECT * FROM usuario WHERE perfil = {perfil}";
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = new MySqlCommand(query, _connection);
+                using(MySqlDataReader reader = command.ExecuteReader())
+                {
+
+                    if(reader.Read())
+                    {
+                        usuario.IdUsuario = reader.GetInt32("idusuario");
+                        usuario.NomeCompleto = reader.GetString("nome_completo");
+                        usuario.Email = reader.GetString("email");
+                        usuario.Senha = reader.GetString("senha");
+                        usuario.Telefone = reader.GetString("telefone");
+                        usuario.Perfil = reader.GetString("perfil");
+                        usuario.Ativo = reader.GetInt32("ativo");
+                    }
+                }  
+            }
+            catch(MySqlException ex)
+            {
+                Console.WriteLine($"Erro no banco: {ex.Message}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Erro desconhecido: {ex.Message}");
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return usuario;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void CriarUsuario(Usuario usuario)
         {
             string query = "INSERT INTO usuario (nome_completo, email, senha, telefone, perfil, ativo) VALUES (@NomeCompleto, @Email, @Senha, @Telefone, @Perfil, @Ativo)";
